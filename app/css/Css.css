@@ -1,0 +1,51 @@
+.bg-blurMy {
+  background-color: rgba(255, 255, 255, 0.059);
+
+  /* backdrop-filter: blur(10px); */
+  /* background-size: 200% 200%; */
+  animation: glow 2s infinite;
+  backdrop-filter: blur(20px);
+}
+/* CSS (Add this to your CSS file) */
+/* CSS Updates */
+.button {
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #fff; /* Adjust to desired hover background */
+  color: #000; /* Adjust to desired hover text color */
+}
+
+.button::after {
+  content: '→'; /* Unicode arrow symbol */
+  position: absolute;
+  right: -2rem; /* Start off-screen */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: white;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.button:hover::after {
+  right: 1rem; /* Move into view */
+  opacity: 1;
+  color: #000; /* Match hover text color */
+}
+
+
+.text-gri {
+  background: radial-gradient(
+    circle,
+    #271c53 0%,
+    rgba(179, 193, 252, 0.794) 100%
+  );
+  background-position: center;
+  background-clip: text; /* Clips the background to the text shape */
+  -webkit-background-clip: text; /* Adds support for WebKit browsers */
+  color: transparent;
+}

@@ -8,7 +8,7 @@ function Index() {
     <div id="contact" className="text-3xl flex border-t-2 border-white/20 pt-10 mb-10 w-[80vw] h-[80vh]">
       <div className="bg-white/5 backdrop-blur-lg flex flex-row text-center px-4 py-6 w-full rounded-2xl h-full backimg">
         <div className="h-full uppercase font-extrabold text-[5vw] w-[50%] text-start leading-snug mt-5">
-          Let's connect and collaborate!
+          {"Let's connect and collaborate!"}
         </div>
         <div className="bg-blurMy py-4 px-4 w-[50%] rounded-lg flex flex-col border-white/20 gap-2">
           <a href="mailto:ritikjain4560gmail.com">

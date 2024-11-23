@@ -1,3 +1,5 @@
+"use client"; // This marks the file as a Client Component
+
 import { useEffect, useState } from "react";
 import { personalData } from "@/utils/data/personal-data";
 import AboutSection from "./components/homepage/about";
@@ -18,7 +20,7 @@ async function getData() {
 }
 
 export default function Home() {
- 
+  const [blogs, setBlogs] = useState([]);
   const [isClient, setIsClient] = useState(false);
 
   // UseEffect to ensure code that uses document or window runs only in client-side
@@ -43,7 +45,7 @@ export default function Home() {
       <Skills />
       <Projects />
       <Education />
-      
+      <Blog blogs={blogs} /> {/* Now the blogs data is passed */}
       <ContactSection />
     </>
   );

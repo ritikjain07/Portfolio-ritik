@@ -9,8 +9,9 @@ import Projects from "./components/homepage/projects";
 import Skills from "./components/homepage/skills";
 
 async function getData() {
-  const res = await fetch(`https://dev.to/api/articles?username=${personalData.devUsername}`)
-
+  const res = await fetch(
+    `https://dev.to/api/articles?username=${personalData.devUsername}`
+  );
 }
 
 export default async function Home() {
@@ -27,5 +28,5 @@ export default async function Home() {
       {/* <Blog blogs={blogs} /> */}
       <ContactSection />
     </>
-  )
-};
+  );
+}

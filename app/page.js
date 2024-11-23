@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { personalData } from "@/utils/data/personal-data";
 import AboutSection from "./components/homepage/about";
 import Blog from "./components/homepage/blog";
@@ -12,10 +13,27 @@ async function getData() {
   const res = await fetch(
     `https://dev.to/api/articles?username=${personalData.devUsername}`
   );
+  const data = await res.json();
+  return data; // return the fetched data
 }
 
-export default async function Home() {
-  const blogs = await getData();
+export default function Home() {
+ 
+  const [isClient, setIsClient] = useState(false);
+
+  // UseEffect to ensure code that uses document or window runs only in client-side
+  useEffect(() => {
+    setIsClient(true);
+    const fetchData = async () => {
+      const data = await getData();
+      setBlogs(data); // Update blogs state with fetched data
+    };
+    fetchData();
+  }, []);
+
+  if (!isClient) {
+    return null; // Prevent rendering on the server-side
+  }
 
   return (
     <>
@@ -25,7 +43,7 @@ export default async function Home() {
       <Skills />
       <Projects />
       <Education />
-      {/* <Blog blogs={blogs} /> */}
+      
       <ContactSection />
     </>
   );
